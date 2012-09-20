@@ -1,6 +1,6 @@
 //
 //  EDDeviceHardware.m
-//  Pic Frame
+//  EDDeviceHardware
 //
 //  Created by Daniil Orlov on 9/6/12.
 //  Copyright (c) 2012 Daniil Orlov. All rights reserved.
