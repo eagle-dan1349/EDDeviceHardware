@@ -17,6 +17,7 @@ extern NSString* const kEDDHiPhone3GS;
 extern NSString* const kEDDHiPhone4;
 extern NSString* const kEDDHVerizoniPhone4;
 extern NSString* const kEDDHiPhone4S;
+extern NSString* const kEDDHiPhone5;
 
 // -- iPods
 extern NSString* const kEDDHiPodTouch1G;

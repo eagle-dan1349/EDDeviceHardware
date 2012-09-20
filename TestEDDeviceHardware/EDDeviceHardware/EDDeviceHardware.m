@@ -10,6 +10,7 @@
 #include <sys/types.h>
 #include <sys/sysctl.h>
 
+// --
 #pragma mark - Defining platform system names
 // -- iPhones
 #define K_PLATFORM_IPHONE_1_1 @"iPhone1,1"
@@ -18,6 +19,7 @@
 #define K_PLATFORM_IPHONE_3_1 @"iPhone3,1"
 #define K_PLATFORM_IPHONE_3_3 @"iPhone3,3"
 #define K_PLATFORM_IPHONE_4_1 @"iPhone4,1"
+#define K_PLATFORM_IPHONE_5_1 @"iPhone5,1"
 // -- iPods
 #define K_PLATFORM_IPOD_1_1 @"iPod1,1"
 #define K_PLATFORM_IPOD_2_1 @"iPod2,1"
@@ -32,6 +34,7 @@
 #define K_PLATFORM_I386 @"i386"
 #define K_PLATFORM_X86_64 @"x86_64"
 
+// --
 #pragma mark - Defining user-friendly device names
 // -- iPhones
 #define K_DEVICE_IPHONE_1_1 @"iPhone 1G"
@@ -40,6 +43,7 @@
 #define K_DEVICE_IPHONE_3_1 @"iPhone 4"
 #define K_DEVICE_IPHONE_3_3 @"Verizon iPhone 4"
 #define K_DEVICE_IPHONE_4_1 @"iPhone 4S"
+#define K_DEVICE_IPHONE_5_1 @"iPhone 5"
 // -- iPods
 #define K_DEVICE_IPOD_1_1 @"iPod Touch 1G"
 #define K_DEVICE_IPOD_2_1 @"iPod Touch 2G"
@@ -79,6 +83,7 @@ NSString* const kEDDHiPhone3GS = K_DEVICE_IPHONE_2_1;
 NSString* const kEDDHiPhone4 = K_DEVICE_IPHONE_3_1;
 NSString* const kEDDHVerizoniPhone4 = K_DEVICE_IPHONE_3_3;
 NSString* const kEDDHiPhone4S = K_DEVICE_IPHONE_4_1;
+NSString* const kEDDHiPhone5 = K_DEVICE_IPHONE_5_1;
 
 // -- iPods
 NSString* const kEDDHiPodTouch1G = K_DEVICE_IPOD_1_1;
@@ -154,6 +159,7 @@ static EDDeviceHardware* _sharedInstance = nil;
                               K_PLATFORM_IPHONE_3_1,
                               K_PLATFORM_IPHONE_3_3,
                               K_PLATFORM_IPHONE_4_1,
+                              K_PLATFORM_IPHONE_5_1,
                               K_PLATFORM_IPOD_1_1,
                               K_PLATFORM_IPOD_2_1,
                               K_PLATFORM_IPOD_3_1,
@@ -173,6 +179,7 @@ static EDDeviceHardware* _sharedInstance = nil;
                             K_DEVICE_IPHONE_3_1,
                             K_DEVICE_IPHONE_3_3,
                             K_DEVICE_IPHONE_4_1,
+                            K_DEVICE_IPHONE_5_1,
                             K_DEVICE_IPOD_1_1,
                             K_DEVICE_IPOD_2_1,
                             K_DEVICE_IPOD_3_1,
@@ -190,7 +197,7 @@ static EDDeviceHardware* _sharedInstance = nil;
     [deviceNames release];
     
     NSString* platformName = [platforms objectForKey:_platformCode];
-
+    
     
     if (platformName == nil) {
         platformName = kUnknownPlatform;
