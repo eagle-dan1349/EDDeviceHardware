@@ -26,6 +26,8 @@ NSString* const kEDDHiPhone5C       = @"iPhone 5C";
 NSString* const kEDDHiPhone5S       = @"iPhone 5S";
 NSString* const kEDDHiPhone6        = @"iPhone 6";
 NSString* const kEDDHiPhone6Plus    = @"iPhone 6 Plus";
+NSString* const kEDDHiPhone6S       = @"iPhone 6S";
+NSString* const kEDDHiPhone6SPlus   = @"iPhone 6S Plus";
 
 // -- iPods
 NSString* const kEDDHiPodTouch  = @"iPod Touch";
@@ -33,6 +35,7 @@ NSString* const kEDDHiPodTouch2 = @"iPod Touch 2";
 NSString* const kEDDHiPodTouch3 = @"iPod Touch 3";
 NSString* const kEDDHiPodTouch4 = @"iPod Touch 4";
 NSString* const kEDDHiPodTouch5 = @"iPod Touch 5";
+NSString* const kEDDHiPodTouch6 = @"iPod Touch 6";
 
 // -- iPads
 NSString* const kEDDHiPad             = @"iPad";
@@ -50,6 +53,8 @@ NSString* const kEDDHiPadAirCellular  = @"iPad Air Cellular";
 NSString* const kEDDHiPadAirTDLTE     = @"iPad Air TD-LTE";
 NSString* const kEDDHiPadAir2WiFi     = @"iPad Air 2 WiFi";
 NSString* const kEDDHiPadAir2Cellular = @"iPad Air 2 Cellular";
+NSString* const kEDDHiPadProWiFi      = @"iPad Pro WiFi";     /* Note: The Model Id is currently unknown */
+NSString* const kEDDHiPadProCellular  = @"iPad Pro Cellular"; /* Note: The Model Id is currently unknown */
 
 // -- iPad Minis
 NSString* const kEDDHiPadMiniWiFi      = @"iPad Mini WiFi";
@@ -61,9 +66,11 @@ NSString* const kEDDHiPadMini2China    = @"iPad Mini 2 China";
 NSString* const kEDDHiPadMini3Wifi     = @"iPad Mini 3 Wifi";
 NSString* const kEDDHiPadMini3Cellular = @"iPad Mini 3 Cellular";
 NSString* const kEDDHiPadMini3China    = @"iPad Mini 3 China";
+NSString* const kEDDHiPadMini4Wifi     = @"iPad Mini 4 Wifi";
+NSString* const kEDDHiPadMini4Cellular = @"iPad Mini 4 Cellular";
 
 // -- simulators
-NSString* const kSimulatorIntelI386 = @"Simulator (Intel i386)";
+NSString* const kSimulatorIntelI386   = @"Simulator (Intel i386)";
 NSString* const kSimulatorIntelX86_64 = @"Simulator (Intel x86_64)";
 
 // -- unknown or newer than implementation time...
@@ -138,26 +145,29 @@ static EDDeviceHardware* _sharedInstance = nil;
     /* Source: http://www.everymac.com */
     NSDictionary *platforms = @{/* iPhone */
                                 @"iPhone1,1": kEDDHiPhone,
-                                @"iPhone1,2": kEDDHiPhone3G,  /* Also, iPhone 3G,  China only (no Wi-Fi) */
-                                @"iPhone2,1": kEDDHiPhone3GS, /* Also, iPhone 3GS, China only (no Wi-Fi) */
+                                @"iPhone1,2": kEDDHiPhone3G,     /* Also, iPhone 3G,  China only (no Wi-Fi) */
+                                @"iPhone2,1": kEDDHiPhone3GS,    /* Also, iPhone 3GS, China only (no Wi-Fi) */
                                 @"iPhone3,1": kEDDHiPhone4GSM,
-                                @"iPhone3,2": kEDDHiPhone4GSM,  /* Wikipedia has this model, but not found on everymac */
-                                @"iPhone3,3": kEDDHiPhone4CDMA, /* (Verizon, Sprint) */
-                                @"iPhone4,1": kEDDHiPhone4S,    /* GSM and CDMA. Also, iPhone 4S, China only (Wi-Fi replaced by its Chinese equivalent: WAPI) */
-                                @"iPhone5,1": kEDDHiPhone5GSM,  /* Multiple versions of this iPhone exists, each supporting different communication bands; all GSM though */
-                                @"iPhone5,2": kEDDHiPhone5CDMA, /* Also, iPhone 5 CDMA China only (no LTE, but UIM and Wi-Fi replaced by its Chinese equivalent: WAPI) */
-                                @"iPhone5,3": kEDDHiPhone5C,    /* GSM and CDMA */
-                                @"iPhone5,4": kEDDHiPhone5C,    /* GSM and CDMA; other countries than previous model. */
-                                @"iPhone6,1": kEDDHiPhone5S,    /* GSM and CDMA */
-                                @"iPhone6,2": kEDDHiPhone5S,    /* GSM and CDMA; other countries than previous model. */
-                                @"iPhone7,1": kEDDHiPhone6Plus, /* GSM, CDMA & Global */
-                                @"iPhone7,2": kEDDHiPhone6,     /* GSM, CDMA & Global */
+                                @"iPhone3,2": kEDDHiPhone4GSM,   /* Wikipedia has this model, but not found on everymac */
+                                @"iPhone3,3": kEDDHiPhone4CDMA,  /* (Verizon, Sprint) */
+                                @"iPhone4,1": kEDDHiPhone4S,     /* GSM and CDMA. Also, iPhone 4S, China only (Wi-Fi replaced by its Chinese equivalent: WAPI) */
+                                @"iPhone5,1": kEDDHiPhone5GSM,   /* Multiple versions of this iPhone exists, each supporting different communication bands; all GSM though */
+                                @"iPhone5,2": kEDDHiPhone5CDMA,  /* Also, iPhone 5 CDMA China only (no LTE, but UIM and Wi-Fi replaced by its Chinese equivalent: WAPI) */
+                                @"iPhone5,3": kEDDHiPhone5C,     /* GSM and CDMA */
+                                @"iPhone5,4": kEDDHiPhone5C,     /* GSM and CDMA; other countries than previous model. */
+                                @"iPhone6,1": kEDDHiPhone5S,     /* GSM and CDMA */
+                                @"iPhone6,2": kEDDHiPhone5S,     /* GSM and CDMA; other countries than previous model. */
+                                @"iPhone7,1": kEDDHiPhone6Plus,  /* GSM, CDMA & Global */
+                                @"iPhone7,2": kEDDHiPhone6,      /* GSM, CDMA & Global */
+                                @"iPhone8,1": kEDDHiPhone6S,     /* ATA&T/Sim Free, Global & Mainland China */
+                                @"iPhone8,2": kEDDHiPhone6SPlus, /* ATA&T/Sim Free, Global & Mainland China */
                                 /* iPods */
                                 @"iPod1,1": kEDDHiPodTouch,
                                 @"iPod2,1": kEDDHiPodTouch2, /* 2009 & 2010 */
                                 @"iPod3,1": kEDDHiPodTouch3,
                                 @"iPod4,1": kEDDHiPodTouch4, /* 2011 & 2012, with and without FaceTime */
                                 @"iPod5,1": kEDDHiPodTouch5,
+                                @"iPod7,1": kEDDHiPodTouch6,
                                 /* iPads */
                                 @"iPad1,1": kEDDHiPad, /* With and without 3G/GPS */
                                 @"iPad2,1": kEDDHiPad2WiFi,
@@ -182,6 +192,8 @@ static EDDeviceHardware* _sharedInstance = nil;
                                 @"iPad4,7": kEDDHiPadMini3Wifi,
                                 @"iPad4,8": kEDDHiPadMini3Cellular,
                                 @"iPad4,9": kEDDHiPadMini3China,
+                                @"iPad5,1": kEDDHiPadMini4Wifi,
+                                @"iPad5,2": kEDDHiPadMini4Cellular,
                                 @"iPad5,3": kEDDHiPadAir2WiFi,
                                 @"iPad5,4": kEDDHiPadAir2Cellular,
                                 /* Simulators */
